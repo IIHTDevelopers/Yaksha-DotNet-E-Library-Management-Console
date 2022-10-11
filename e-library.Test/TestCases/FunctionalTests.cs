@@ -1,4 +1,4 @@
-using e_library.Test.TestCases;
+using e_library.Test;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,7 +18,7 @@ namespace e_library.Test.TestCases
         private Issue _issue;
         private static string type = "Functional";
         public FunctionalTests(ITestOutputHelper output)
-        {
+            {
             _output = output;
             _book = new Book()
             {
@@ -60,12 +60,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
-              status = Convert.ToString(res);
-              _output.WriteLine(testName + ":Failed");
-              await CallAPI.saveTestResult(testName, status, type);
-              return false;
-            }
+                ///Write test result if any exception occur
+                status = Convert.ToString(res);
+                _output.WriteLine(testName + ":Failed");
+                await CallAPI.saveTestResult(testName, status, type);
+                return false;
+              }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -79,7 +81,6 @@ namespace e_library.Test.TestCases
             return res;
         }
 
-
         /// <summary>
         /// Test to issue new book for student
         /// </summary>
@@ -89,7 +90,7 @@ namespace e_library.Test.TestCases
         {
             //Arrange
             bool res = false;
-            string testName;string status;
+            string testName; string status;
             testName = CallAPI.GetCurrentMethodName();
             BookInventory inventory = new BookInventory();
             try
@@ -105,12 +106,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -124,7 +127,6 @@ namespace e_library.Test.TestCases
             return res;
         }
 
-
         /// <summary>
         /// test for show inventory
         /// </summary>
@@ -134,7 +136,7 @@ namespace e_library.Test.TestCases
         {
             //Arrange
             bool res = false;
-            string testName;string status;
+            string testName; string status;
             testName = CallAPI.GetCurrentMethodName();
             BookInventory inventory = new BookInventory();
             try
@@ -149,12 +151,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -164,8 +168,8 @@ namespace e_library.Test.TestCases
             {
                 _output.WriteLine(testName + ":Failed");
             }
-          await CallAPI.saveTestResult(testName, status, type);
-          return res;
+            await CallAPI.saveTestResult(testName, status, type);
+            return res;
         }
     }
 }

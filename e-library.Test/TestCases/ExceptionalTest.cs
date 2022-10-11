@@ -1,4 +1,4 @@
-using e_library.Test.TestCases;
+using e_library.Test;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,7 +18,7 @@ namespace e_library.Test.TestCases
         private Issue _issue;
         private static string type = "Exception";
         public ExceptionalTest(ITestOutputHelper output)
-        {
+            {
             _output = output;
             _output = output;
             _book = new Book()
@@ -36,7 +36,7 @@ namespace e_library.Test.TestCases
                 IssueDate = DateTime.Now
             };
         }
-        
+       
         /// <summary>
         /// test for add book passed null should return null
         /// </summary>
@@ -62,12 +62,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
-                status = Convert.ToString(res);
-                _output.WriteLine(testName + ":Failed");
-                await CallAPI.saveTestResult(testName, status, type);
-                return false;
-              }
+              ///Write test result if any exception occur
+              status = Convert.ToString(res);
+              _output.WriteLine(testName + ":Failed");
+              await CallAPI.saveTestResult(testName, status, type);
+              return false;
+            }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {

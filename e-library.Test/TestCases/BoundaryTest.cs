@@ -1,4 +1,4 @@
-using e_library.Test.TestCases;
+using e_library.Test;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +15,7 @@ namespace e_library.Test.TestCases
         private Issue _issue;
         private static string type = "Boundary";
         public BoundaryTest(ITestOutputHelper output)
-        {
+            {
             _output = output;
             _book = new Book()
             {
@@ -61,12 +61,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -79,7 +81,6 @@ namespace e_library.Test.TestCases
             await CallAPI.saveTestResult(testName, status, type);
             return res;
         }
-
 
         /// <summary>
         /// Test for bookName is correct or not.
@@ -109,12 +110,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -157,12 +160,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -205,12 +210,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -253,12 +260,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -268,9 +277,9 @@ namespace e_library.Test.TestCases
             {
                 _output.WriteLine(testName + ":Failed");
             }
-            await CallAPI.saveTestResult(testName, status, type);
-            return res;
-        }
+          await CallAPI.saveTestResult(testName, status, type);
+          return res;
+         }
 
 
         /// <summary>
@@ -302,12 +311,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -351,12 +362,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -400,12 +413,14 @@ namespace e_library.Test.TestCases
             }
             catch (Exception)
             {
+              ///Write test result if any exception occur
               status = Convert.ToString(res);
               _output.WriteLine(testName + ":Failed");
               await CallAPI.saveTestResult(testName, status, type);
               return false;
             }
             ///Assert
+            ///Write final test result
             status = Convert.ToString(res);
             if (res == true)
             {
